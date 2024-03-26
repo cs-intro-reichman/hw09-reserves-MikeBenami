@@ -72,20 +72,16 @@ public class List {
      *  in this list, removes this CharData object from the list and returns
      *  true. Otherwise, returns false. */
     public boolean remove(char chr) {
-        if (first == null) return false;
-        if (first.cp.chr == chr) {
-            first = first.next;
-            size--;
-            return true;
-        }
-        Node current = first;
-        while (current.next != null) {
-            if (current.next.cp.chr == chr) {
-                current.next = current.next.next;
-                size--;
+        Node temp = this.first;
+        Node prev = temp;
+        while (temp != null){
+            if (temp.cp.chr == chr){
+                prev.next = temp.next;
+                this.size--;
                 return true;
             }
-            current = current.next;
+            prev = temp;
+            temp = temp.next;
         }
         return false;
     }
