@@ -19,8 +19,8 @@ public class ListIterator {
      *  and advances the cursor to the next element.
      *  Should be called only if hasNext() is true. */
     public CharData next() {
-        CharData cp = current.cp;
+        CharData cd = current.cp;
         current = current.next;
-        return cp;
+        return cd;
     }
 }
